@@ -32,7 +32,7 @@ class AbstractMetadataRepository(ABC):
 
 class MetadataRepository(AbstractMetadataRepository):
     def __init__(self,
-                 target_dir_path: str = 'data/artifacts/metadata',
+                 metadata_dir_path: str,
                  metadata_file_name: str = 'metadata.json'):
-        super().__init__(target_dir_path=target_dir_path,
+        super().__init__(metadata_dir_path=metadata_dir_path,
                          metadata_file_name=metadata_file_name)
