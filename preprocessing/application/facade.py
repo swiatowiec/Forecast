@@ -1,15 +1,18 @@
 from infrastructure.dataset_repository import DatasetRepository
 from domain.dataset_factory import DatasetFactory
 from domain.service import PreprocessingOptions, PreprocessingService
+from infrastructure.metadata import MetadataRepository
 
 class PreprocessingFitTransformFacade:
 
     def __init__(self,
                  dataset_repository: DatasetRepository,
                  preprocessing_service: PreprocessingService,
+                 metadata_repository: MetadataRepository,
                  ):
         self._dataset_repository = dataset_repository
         self._preprocessing_service = preprocessing_service
+        self._metadata_repository = metadata_repository
 
     def fit_transform(self, args):
         dataset_factory = DatasetFactory(self._dataset_repository)
@@ -25,4 +28,7 @@ class PreprocessingFitTransformFacade:
                                                 )
         self._dataset_repository.save_dataset(
             dataset, output_dir_path=args.output_dir_path)
+
+        self._metadata_repository.save_metadata(
+            metadata=metadata.to_dict(), run_name=args.run_name)
 
