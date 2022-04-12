@@ -21,5 +21,6 @@ class PreprocessingFitTransformFacade:
         metadata = self._preprocessing_service.preprocess(dataset=dataset,
                                                     preprocessing_options=preprocessing_options,
                                                 )
+        self._dataset_repository.save_dataset(
+            dataset, output_dir_path=args.output_dir_path)
 
-                                                

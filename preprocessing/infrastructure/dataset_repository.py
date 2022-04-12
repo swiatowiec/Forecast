@@ -1,5 +1,6 @@
 import glob
 import pandas as pd
+import os
 
 class DatasetRepository:
     def read_dataset(self, input_dir_path):
@@ -14,3 +15,8 @@ class DatasetRepository:
             '{}/*.csv'.format(input_dir_path))
         for path in path_to_files:
             return pd.read_csv(path, usecols=usecols)
+
+    def save_dataset(self, dataset, output_dir_path):
+        df = dataset.get_data()
+        df.to_csv(os.path.join(output_dir_path,
+                               'Aquifer_Petrignano.csv'), index=False)
