@@ -1,5 +1,6 @@
 from infrastructure.dataset_repository import DatasetRepository
 from domain.dataset_factory import DatasetFactory
+from domain.service import PreprocessingOptions
 
 class PreprocessingFitTransformFacade:
 
@@ -12,3 +13,13 @@ class PreprocessingFitTransformFacade:
         dataset_factory = DatasetFactory(self._dataset_repository)
         dataset = dataset_factory.create_from_files(
             input_dir_path=args.input_dir_path)
+
+        preprocessing_options = PreprocessingOptions(fulfillment_mode=args.fulfillment_mode,
+                                            columns_to_fulfill=args.columns_to_fulfill,
+                                            )
+
+        metadata = self._preprocessing_service.preprocess(dataset=dataset,
+                                                    preprocessing_options=preprocessing_options,
+                                                )
+
+                                                
