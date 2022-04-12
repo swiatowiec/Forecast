@@ -1,13 +1,15 @@
 from infrastructure.dataset_repository import DatasetRepository
 from domain.dataset_factory import DatasetFactory
-from domain.service import PreprocessingOptions
+from domain.service import PreprocessingOptions, PreprocessingService
 
 class PreprocessingFitTransformFacade:
 
     def __init__(self,
                  dataset_repository: DatasetRepository,
+                 preprocessing_service: PreprocessingService,
                  ):
         self._dataset_repository = dataset_repository
+        self._preprocessing_service = preprocessing_service
 
     def fit_transform(self, args):
         dataset_factory = DatasetFactory(self._dataset_repository)
