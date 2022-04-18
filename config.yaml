@@ -1,0 +1,6 @@
+preprocessing:
+  input_dir_path: data/input
+  output_dir_path: data/preprocessed
+  metadata_dir_path: preprocessing/artifacts/metadata
+  fulfillment_mode: mean
+  columns_to_fulfill: radius_mean,texture_mean
