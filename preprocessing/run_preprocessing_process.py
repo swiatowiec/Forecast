@@ -3,7 +3,10 @@ from application.facade import PreprocessingFitTransformFacade, PreprocessingFit
 from infrastructure.dataset_repository import DatasetRepository
 from domain.service import PreprocessingService
 from infrastructure.metadata import MetadataRepository
+from config import PreprocessingConfig
 
+
+#dev version
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_dir_path', type=str, default='data/input')
@@ -20,6 +23,14 @@ if __name__ == '__main__':
                                          fulfillment_mode=arg.fulfillment_mode,
                                         columns_to_fulfill=arg.columns_to_fulfill.split(
                                              ',') if arg.columns_to_fulfill else None)
+
+#prod version
+    config = PreprocessingConfig('config.yaml')
+    args =  args = PreprocessingFitTransformArgs(input_dir_path=config.input_dir_path,
+                                         output_dir_path=config.output_dir_path,
+                                         fulfillment_mode=config.fulfillment_mode,
+                                        columns_to_fulfill=config.columns_to_fulfill.split(
+                                             ',') if config.columns_to_fulfill else None)
 
     dataset_repository = DatasetRepository()
     preprocessing_service = PreprocessingService()

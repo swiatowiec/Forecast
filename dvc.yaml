@@ -2,9 +2,9 @@ stages:
   preprocessing:
     cmd: python3 preprocessing/run_preprocessing_process.py
     deps: 
-      - data/input/Aquifer_Petrignano.csv
+      - data/input
     params:
       - config.yaml:
-          preprocessing.fulfillment_mode
+          - preprocessing.fulfillment_mode
     outs:
       - data/preprocessed
