@@ -56,15 +56,15 @@ class PreprocessingTransformFacade:
 
         measurements_series = DatasetFactory.create_from_dict(measurements)
 
-        metadata_do = Metadata.from_dict(self._metadata_repository.get_metadata(
+        metadata = Metadata.from_dict(self._metadata_repository.get_metadata(
             run_name=run_name))
 
-        preprocessing_options = PreprocessingOptions(fulfillment_mode=metadata_do.filler_metadata['filler_type'], 
-                                                    columns_to_fulfill=list(metadata_do.filler_metadata[
+        preprocessing_options = PreprocessingOptions(fulfillment_mode=metadata.filler_metadata['filler_type'], 
+                                                    columns_to_fulfill=list(metadata.filler_metadata[
                                                                                         'filler_value'].keys()),
                                                     )
 
         self._preprocessing_service.preprocess(dataset=measurements_series,
                         preprocessing_options=preprocessing_options,
-                        metadata_do=metadata_do,
+                        metadata=metadata,
                         )                              

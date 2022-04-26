@@ -23,7 +23,7 @@ class PreprocessingService:
                    dataset,
                    preprocessing_options: PreprocessingOptions,
                    metadata: Optional[Metadata],
-    ):
+                    ):
         if dataset is None:
             raise Exception("The dataset is empty")
         filler_metadata = metadata.filler_metadata if metadata is not None else None
