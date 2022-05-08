@@ -1,5 +1,5 @@
 import argparse
-from application.facade import PreprocessingFitTransformFacade, PreprocessingFitTransformArgs
+from domain.facade import PreprocessingFitTransformFacade, PreprocessingFitTransformArgs
 from infrastructure.dataset_repository import DatasetRepository
 from domain.service import PreprocessingService
 from infrastructure.metadata import MetadataRepository
