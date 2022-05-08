@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
 #prod version
     config = PreprocessingConfig('config.yaml')
-    args =  args = PreprocessingFitTransformArgs(input_dir_path=config.input_dir_path,
+    args = PreprocessingFitTransformArgs(input_dir_path=config.input_dir_path,
                                          output_dir_path=config.output_dir_path,
                                          fulfillment_mode=config.fulfillment_mode,
                                         columns_to_fulfill=config.columns_to_fulfill.split(
