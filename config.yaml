@@ -1,0 +1,6 @@
+training:
+  train_dir_path: data/preprocessed
+  artifacts_dir_path: data/artifacts/training
+  run_name: test
+  look_back: 5
+  n_splits: 3
