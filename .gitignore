@@ -1,6 +1,3 @@
-*.pyc
 .vscode
-README.md
-.dvc
-data
-run_preprocessing_process.py
+*.pyc
+
