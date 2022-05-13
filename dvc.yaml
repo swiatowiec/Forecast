@@ -1,0 +1,10 @@
+stages:
+  preprocessing:
+    cmd: python3 preprocessing/run_preprocessing_process.py
+    deps: 
+      - data/input
+    params:
+      - config.yaml:
+          - preprocessing.fulfillment_mode
+    outs:
+      - data/preprocessed
