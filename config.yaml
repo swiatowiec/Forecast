@@ -1,13 +1,13 @@
 preprocessing:
   input_dir_path: data/input
   output_dir_path: data/preprocessed
-  metadata_dir_path: preprocessing/artifacts/metadata
+  metadata_dir_path: data/artifacts/metadata
   fulfillment_mode: mean
   columns_to_fulfill: radius_mean,texture_mean
   
 training:
   train_dir_path: data/preprocessed
-  artifacts_dir_path: data/artifacts/training
+  artifacts_dir_path: data/artifacts/metrics
   run_name: test
   look_back: 5
   n_splits: 3
