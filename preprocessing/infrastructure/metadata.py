@@ -6,8 +6,8 @@ from pathlib import Path
 
 
 class AbstractMetadataRepository(ABC):
-    def __init__(self, target_dir_path, metadata_file_name):
-        self._target_dir_path = target_dir_path
+    def __init__(self, metadata_dir_path, metadata_file_name):
+        self._target_dir_path = metadata_dir_path
         self._metadata_file_name = metadata_file_name
 
     def _get_file_name(self):

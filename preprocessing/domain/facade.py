@@ -66,5 +66,5 @@ class PreprocessingTransformFacade:
 
         self._preprocessing_service.preprocess(dataset=measurements_series,
                         preprocessing_options=preprocessing_options,
-                        metadata=metadata,
+                        metadata_do=metadata,
                         )                              

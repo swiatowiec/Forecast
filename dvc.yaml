@@ -9,7 +9,6 @@ stages:
     outs:
       - data/preprocessed
       - data/artifacts/metadata
-
   training:
     cmd: python3 training/run_train_process.py
     deps:
@@ -21,12 +20,10 @@ stages:
         - training.n_splits
         - training.train_dir_path
         - training.artifacts_dir_path
-    outs:
-      - data/artifacts/metrics
     metrics:
       - data/artifacts/metrics/rmse.json:
-        - cache: false
+          cache: false
       - data/artifacts/metrics/mape.json:
-        - cache: false
+          cache: false
 
   
